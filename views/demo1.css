@@ -1,0 +1,80 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+.left {
+  width: 300px;
+  height: 100%;
+  border-right: 4px solid #ddd;
+}
+.left .thumbs {
+  height: 100%;
+  overflow-y: scroll;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+.left .thubmview {
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  border: 1px solid #ccc;
+}
+.left .thubmview div {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  margin-top: 444;
+}
+.righ {
+  flex: 1;
+  height: 100%;
+  display: flex;
+}
+.righ .padfpageview {
+  position: relative;
+  height: 100%;
+  width: 1200px;
+  overflow-y: scroll;
+  padding: 40px 0;
+  box-sizing: border-box;
+}
+.righ .padfpageview .pageview {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px 0 #aaa;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.righ .tags {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  padding: 20px;
+}
+.righ .tags .tag {
+  padding: 20px 0;
+}
+.righ .tiprect {
+  position: absolute;
+  border: 1px solid red;
+  border-radius: 4px;
+  top: -10000px;
+  left: 0;
+  z-index: 1000;
+}

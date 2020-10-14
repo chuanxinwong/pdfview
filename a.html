@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="../../node_modules/pdfjs-dist/web/pdf_viewer.css"
+    />
+    <style>
+      .view {
+        /* width: 720px; */
+        /* height: 960px; */
+        border: 1px solid red;
+      }
+      .pageview .page {
+        position: relative;
+        margin: 0 auto 20px auto;
+        box-shadow: 0 5px 10px 0 #ccc;
+      }
+      .test {
+        border: 1px solid blue;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="test">
+        <img src="" alt="">
+      </div>
+      <div class="view"></div>
+    </div>
+  </body>
+  <script src="../../node_modules/pdfjs-dist/build/pdf.js"></script>
+  <script src="../../node_modules/pdfjs-dist/web/pdf_viewer.js"></script>
+  <script>
+    var img = document.querySelector(".test img");
+    
+    
+    
+    var view = document.querySelector(".view");
+    var pdfWorker = "../../node_modules/pdfjs-dist/build/pdf.worker.js";
+    var file1 = "./AN202007271394553506.pdf";
+    var file2 = "./1208247359.PDF";
+    var file3 = "./1208234486.PDF"; // 116
+
+
+    // pdfjsLib.GlobalWorkerOptions.workerSrc = pdfWorker;
+
+    console.log(pdfjsLib);
+
+    var eventBus = new pdfjsViewer.EventBus();
+    console.log(eventBus);
+
+    var loadingTask = pdfjsLib.getDocument({
+      url: file3,
+    });
+
+    console.log(loadingTask);
+
+    loadingTask.promise.then(pdfDocument => {
+      console.log(pdfDocument);
+
+      var numPages = pdfDocument.numPages || 1;
+
+      for (var i = 1; i <= 1; i++) {
+        pdfDocument.getPage(i).then(pdfPage => {
+          console.log(pdfPage);
+
+          pdfPage.getOperatorList().then(res => {
+            console.log("---------")
+            console.log(res);
+          });
+
+          var pageView = document.createElement("div");
+          pageView.className = "pageview";
+          var viewport = pdfPage.getViewport({ scale: 1.0 });
+
+          var pdfPageView = new pdfjsViewer.PDFPageView({
+            container: pageView,
+            id: i,
+            scale: 1.0,
+            defaultViewport: viewport,
+            eventBus: eventBus,
+            textLayerFactory: new pdfjsViewer.DefaultTextLayerFactory(),
+            annotationLayerFactory: new pdfjsViewer.DefaultAnnotationLayerFactory(),
+          });
+
+          view.appendChild(pageView);
+
+          pdfPageView.setPdfPage(pdfPage);
+          pdfPageView.draw();
+
+          console.log("=================================");
+          console.log(pdfPageView);
+          console.log(pdfPageView.textLayer);
+        });
+      }
+    });
+  </script>
+</html>
