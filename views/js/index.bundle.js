@@ -68704,8 +68704,8 @@ console.log(pdfjsViewer);
 
 // debugger
 
-// var file1 = "./pdf/光大银行 2019半年度报告.PDF";
-var file1 = "./pdf/奥克斯-2018y.pdf";
+var file1 = "./pdf/光大银行 2019半年度报告.PDF";
+// var file1 = "./pdf/奥克斯-2018y.pdf";
 
 
 function loadPdf(file) {

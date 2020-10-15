@@ -1,23 +1,30 @@
 {
-  "name": "pdfTag",
+  "name": "pdfview",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "webpack -w"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "main": "webpack.config.js",
   "dependencies": {
     "css-loader": "^4.3.0",
     "file-loader": "^6.1.0",
     "pdfjs-dist": "^2.4.456",
     "raw-loader": "^4.0.1",
     "style-loader": "^1.2.1",
+    "webpack-cli": "^3.3.12",
     "webpack": "^4.44.1"
   },
-  "devDependencies": {
-    "webpack-cli": "^3.3.12"
-  }
+  "devDependencies": {},
+  "scripts": {
+    "dev": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chuanxinwong/pdfview.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chuanxinwong/pdfview/issues"
+  },
+  "homepage": "https://github.com/chuanxinwong/pdfview#readme"
 }
